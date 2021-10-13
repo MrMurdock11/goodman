@@ -1,0 +1,22 @@
+.button {
+	display: flex;
+	text-transform: uppercase;
+	min-width: 100px;
+	height: 34px;
+	align-items: center;
+	justify-content: center;
+	background-color: #ECF0F1;
+	color: #020202;
+	border-radius: 4px;
+	font-weight: 700;
+	font-size: 14px;
+	cursor: pointer;
+	transition: filter ease-in-out 150ms;
+
+	outline: none;
+	border: none;
+}
+
+.button:hover {
+	filter: brightness(95%);
+}

@@ -1,0 +1,120 @@
+.container {
+	display: grid;
+	grid-template-columns: 300px 1fr;
+	width: 733px;
+	height: 504px;
+
+	border-radius: 10px;
+	background-color: #fff;
+	box-shadow: 1px 1px 3px 2px rgba(0, 0, 0, .1);
+	overflow: hidden;
+}
+
+/* Banner */
+
+.banner {
+	position: relative;
+
+	display: flex;
+	align-items: center;
+
+	height: 100%;
+}
+
+.wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+
+	width: 100%;
+
+	color: #fff;
+}
+
+.image_wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	width: 120px;
+	height: 120px;
+
+	background-color: #fff;
+
+	border-radius: 60px;
+}
+
+.image {
+	width: 74px;
+	height: 74px;
+}
+
+.title {
+	width: 260px;
+	margin-top: 40px;
+
+	font-size: 18px;
+	text-transform: uppercase;
+
+	text-align: center;
+	line-height: 23px;
+}
+
+.description {
+	width: 260px;
+	font-style: normal;
+	font-weight: 300;
+	font-size: 14px;
+	line-height: 16px;
+	text-align: center;
+	margin-top: 15px;
+}
+
+/* Navigation */
+
+.navigation {
+	position: absolute;
+	bottom: 40px;
+	left: 0;
+	right: 0;
+
+	display: grid;
+	gap: 20px;
+	grid-template-columns: repeat(4, min-content);
+	justify-content: center;
+
+	list-style: none;
+}
+
+.item {
+	width: 14px;
+	height: 14px;
+	border-radius: 7px;
+	box-sizing: border-box;
+	border: 2px solid #fff;
+	cursor: pointer;
+}
+
+.active {
+	background-color: #fff;
+}
+
+/* Form */
+
+.form {
+	position: relative;
+	height: 100%;
+}
+
+/* Controls */
+
+.controls {
+	position: absolute;
+	right: 20px;
+	bottom: 30px;
+	display: flex;
+}
+
+.controls>*+* {
+	margin-left: 10px;
+}

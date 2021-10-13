@@ -1,3 +1,9 @@
 .container {
 	display: flex;
+	width: 100vw;
+	height: 100vh;
+	background-color: #ECF0F1;
+	justify-content: center;
+	padding-top: 10%;
+	box-sizing: border-box;
 }
