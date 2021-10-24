@@ -10,6 +10,7 @@
   "endOfLine": "lf",
   "importOrder": [
     ".+.(gstyle|style).css$",
+    ".+.(svg|png|jp(eg|g)|gif)$",
     "^@components/(.*)$",
     "^[./]"
   ],
