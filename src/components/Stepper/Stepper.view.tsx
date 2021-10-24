@@ -1,38 +1,67 @@
+import classNames from "classnames";
+import { map, range } from "lodash";
+import React, { useState } from "react";
+
 import styles from "./Stepper.style.css";
 
-import React, { useState } from "react";
-import { TStepperProps } from "./Stepper";
+import CourtOfLawIcon from "./contents/court-of-law.svg";
+import DebtorIcon from "./contents/debtor.svg";
+import DocumentsIcon from "./contents/document.svg";
+import FinancialManangerIcon from "./contents/manager.svg";
+
+import { Banner } from "@components/Banner";
 import { Button } from "@components/Button";
-import { map, range, repeat } from "lodash";
-import classNames from "classnames";
+
+import { TStepperProps } from "./Stepper";
+import { FinancialManagerForm } from "./childs/FinancialManagerForm";
+
+type TBanner = {
+	icon: TSvg;
+	title: string;
+	description: string;
+	color: TColor;
+};
 
 export const StepperView: React.FC<TStepperProps> = props => {
-	const { count, banner, children } = props;
+	const banners: TBanner[] = [
+		{
+			icon: FinancialManangerIcon,
+			title: "Финансовый управляющий",
+			description:
+				"Данные финансового управляющего для составления отчета",
+			color: "#3498DB",
+		},
+		{
+			icon: DebtorIcon,
+			title: "Должник ",
+			description: "Данные должника для составления отчета",
+			color: "#9B59B6",
+		},
+		{
+			icon: CourtOfLawIcon,
+			title: "Cуд",
+			description: "Информация о суде для составления отчета",
+			color: "#34495E",
+		},
+		{
+			icon: DocumentsIcon,
+			title: "Документы",
+			description: "Сгенерированные отчеты",
+			color: "#E67E22",
+		},
+	];
 	const [currentIndex, setCurrentIndex] = useState(0);
 
 	return (
 		<div className={styles.container}>
-			<div
-				className={styles.banner}
-				style={{ backgroundColor: banner[currentIndex].color }}
+			<Banner
+				icon={banners[currentIndex].icon}
+				title={banners[currentIndex].title}
+				description={banners[currentIndex].description}
+				color={banners[currentIndex].color}
 			>
-				<div className={styles.wrapper}>
-					<div className={styles.imageWrapper}>
-						<img
-							src={banner[currentIndex].icon}
-							className={styles.image}
-						/>
-					</div>
-					<div className={styles.title}>
-						{banner[currentIndex].title}
-					</div>
-					<div className={styles.description}>
-						{banner[currentIndex].description}
-					</div>
-				</div>
-
 				<ul className={styles.navigation}>
-					{map(range(0, count), (value, index) => (
+					{map(range(0, banners.length), (value, index) => (
 						<li
 							className={classNames(styles.item, {
 								[styles.active]: index === currentIndex,
@@ -41,8 +70,11 @@ export const StepperView: React.FC<TStepperProps> = props => {
 						/>
 					))}
 				</ul>
-			</div>
+			</Banner>
+
 			<div className={styles.form}>
+				<FinancialManagerForm />
+
 				<div className={styles.controls}>
 					<Button
 						onClick={
@@ -55,7 +87,7 @@ export const StepperView: React.FC<TStepperProps> = props => {
 					</Button>
 					<Button
 						onClick={
-							currentIndex < count - 1
+							currentIndex < banners.length - 1
 								? () => setCurrentIndex(currentIndex + 1)
 								: null
 						}

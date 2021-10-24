@@ -1,0 +1,7 @@
+.container {
+	display: grid;
+	gap: 10px;
+
+	padding: 20px;
+	box-sizing: border-box;
+}

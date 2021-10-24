@@ -1,13 +1,17 @@
 import React from "react";
+
 import { InputView } from "./Input.view";
 
-type InputState = {
-	/* your states */
+export type InputProps = {
+	label: string;
+	value?: string;
+	onChange?: React.ChangeEventHandler;
 };
 
-export type InputProps = InputState;
-
-export const Input: React.FC<InputProps> = (props) => {
+export const Input: React.FC<InputProps> = props => {
 	return <InputView {...props} />;
 };
 
+Input.defaultProps = {
+	value: "",
+};
